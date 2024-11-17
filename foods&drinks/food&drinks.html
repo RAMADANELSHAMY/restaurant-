@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <style>
+      * {
+        border: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      ul {
+        list-style: none;
+      }
+      main {
+        min-height: 100vh;
+      }
+      aside ul li a {
+        padding: 10px 0;
+        font-weight: 500;
+        font-size: 12px;
+      }
+      .carduser img {
+        top: -25px;
+        left: calc(50% - 25px);
+      }
+      .categories a {
+        width: calc((100% - 32px) / 3);
+      }
+      .search::placeholder {
+        font-size: 12px;
+        font-weight: 500;
+        color: #6c757d;
+        opacity: 0.5;
+      }
+      .cardProducts,
+      .cardTypes {
+        width: calc((100% - 36px) / 3);
+        height: 300px;
+        cursor: pointer;
+        transition: all 0.5s;
+      }
+      .cardProducts:hover {
+        background: #ffc107 !important;
+      }
+      .card-img-top {
+        object-fit: contain;
+        width: 130px;
+        height: 130px;
+        mix-blend-mode: multiply;
+      }
+      @media screen and (max-width: 767px) {
+        nav a {
+          font-size: 10px !important;
+        }
+
+        .cardProducts,
+        .cardTypes {
+          width: 80%;
+          min-height: 100px;
+        }
+        .card-img-top {
+          width: 80px;
+          height: 80px;
+        }
+        .img-card {
+          width: 50px;
+          height: 60px;
+        }
+        .total {
+          font-size: 10px;
+        }
+        .addToOrder {
+          font-size: 10px !important;
+        }
+        #cardContent h5 {
+          font-size: 14px !important;
+        }
+        .logo {
+          font-size: 14px !important;
+          padding: 5px !important;
+          width: 40px;
+        }
+        .logo-title {
+          font-size: 15px !important;
+        }
+        .alert{
+          font-size: 10px ;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="container position-relative">
+        <div class="row">
+          <aside
+            class="col-5 col-lg-3 bg-white shadow-sm py-2 px-3 d-none d-lg-block"
+            style="min-height: 100vh"
+          >
+            <div
+              class="ps-4 d-flex gap-3 align-items-center"
+              onclick="goLogin()"
+              style="cursor: pointer"
+            >
+              <i
+                class="fa-solid fa-bag-shopping text-danger text-center p-2 col-lg-3 col-xl-2 rounded-4 bg-secondary-subtle fs-5"
+              ></i>
+              <h1 class="m-0 fs-5 fw-bolder">
+                Smart<span class="text-danger">POS</span>
+              </h1>
+            </div>
+            <ul class="p-0 mt-2">
+              <li class="rounded-4">
+                <a href="#" class="d-flex gap-3 align-items-center px-3">
+                  <img
+                    src="../assets/icon1.png"
+                    style="width: 25px"
+                    alt=""
+                    class="bg-danger"
+                  />
+                  <p class="m-0">Dashboard</p>
+                </a>
+              </li>
+              <li class="bg-warning mt-1 rounded-4">
+                <a href="#" class="d-flex gap-3 px-3 align-items-center">
+                  <img
+                    src="../assets/icon2.png"
+                    style="width: 20px; mix-blend-mode: multiply"
+                    alt=""
+                    class="bg-danger"
+                  />
+                  <p class="m-0">Food & Drinks</p>
+                </a>
+              </li>
+              <li class="mt-1 rounded-4">
+                <a href="#" class="d-flex gap-3 px-3 align-items-center">
+                  <img
+                    src="../assets/icon3.png"
+                    style="width: 20px"
+                    alt=""
+                    class="bg-danger"
+                  />
+                  <p class="m-0">Messages</p>
+                </a>
+              </li>
+              <li class="mt-1 rounded-4">
+                <a href="#" class="d-flex gap-3 px-3 align-items-center">
+                  <img
+                    src="../assets/icon4.png"
+                    style="width: 20px"
+                    alt=""
+                    class="bg-danger"
+                  />
+                  <p class="m-0">Bills</p>
+                </a>
+              </li>
+              <li class="mt-1 rounded-4">
+                <a href="#" class="d-flex gap-3 px-3 align-items-center">
+                  <img
+                    src="../assets/icon5.png"
+                    style="width: 20px"
+                    alt=""
+                    class="bg-danger"
+                  />
+                  <p class="m-0">Settings</p>
+                </a>
+              </li>
+              <li class="mt-2 mb-2 ps-3 text-secondary fw-medium">Other</li>
+
+              <li class="mt-1 rounded-4">
+                <a href="#" class="d-flex gap-3 px-3 align-items-center">
+                  <img
+                    src="../assets/icon6.png"
+                    style="width: 20px"
+                    alt=""
+                    class="bg-danger"
+                  />
+                  <p class="m-0">Notifications</p>
+                </a>
+              </li>
+              <li class="mt-1 rounded-4">
+                <a href="#" class="d-flex gap-3 px-3 align-items-center">
+                  <img
+                    src="../assets/icon7.png"
+                    style="width: 20px"
+                    alt=""
+                    class="bg-danger"
+                  />
+                  <p class="m-0">Support</p>
+                </a>
+              </li>
+            </ul>
+
+            <div
+              class="carduser col-9 bg-black text-center position-relative mt-4 m-auto py-4 bg-white border-0 shadow-lg rounded-4"
+            >
+              <img
+                src="../assets/user.png"
+                class="rounded-circle object-fit-cover m-auto position-absolute"
+                style="width: 50px; height: 50px"
+                alt="..."
+              />
+
+              <div class="card-body">
+                <h5 class="card-title fw-bold" style="font-size: 16px">
+                  Theresa Webb
+                </h5>
+                <p class="card-text text-secondary" style="font-size: 12px">
+                  Waiter
+                  <span
+                    class="d-inline-block bg-secondary rounded-circle align-middle"
+                    style="padding: 2px"
+                  ></span>
+                  4h 56m
+                </p>
+                <a
+                  href="#"
+                  class="btn bg-secondary-subtle fw-semibold"
+                  style="font-size: 12px"
+                  >Open profile</a
+                >
+              </div>
+            </div>
+
+            <p
+              style="font-size: 12px"
+              class="text-secondary text-center mt-3 fw-medium"
+            >
+              &copy; 2020 SmartPOS App
+            </p>
+          </aside>
+          <section
+            class="col-12 col-lg-9 py-2 d-flex flex-column"
+            style="min-height: 100vh"
+          >
+            <div
+              class="d-flex d-lg-none gap-3 align-items-center col-12 mb-3"
+              onclick="goLogin()"
+              style="cursor: pointer"
+            >
+              <i
+                class="logo fa-solid fa-bag-shopping text-danger text-center p-2 col-2 col-md-1 rounded-4 fs-5"
+                style="background: #faf9f9"
+              ></i>
+              <h1 class="m-0 fs-5 fw-bolder logo-title">SmartPOS</h1>
+            </div>
+            <nav
+              class="col-12 d-flex flex-wrap justify-content-between py-2 align-items-center"
+            >
+              <div
+                class="d-flex gap-4 align-items-baseline flex-wrap col-12 col-lg-9"
+              >
+                <button
+                  onclick="changePath() "
+                  style="background-color: #f8f8f7"
+                  class="px-2 py-1 rounded-3 border-0 stopPath"
+                >
+                  <i class="fa-solid fa-arrow-left-long"></i>
+                </button>
+                <ul class="p-0 d-flex gap-2 align-items-center col-md-6">
+                  <li>
+                    <a class="text-secondary text-opacity-75" href="#"
+                      >Food & Drinks
+                      <span>></span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" id="activeLink"> Categories</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="position-relative col-9 col-md-6 col-lg-3">
+                <input
+                  onkeyup="searchInput(event,'cat',category)"
+                  class="search-1 p-2 ps-5 col-12 rounded-4"
+                  type="search"
+                  placeholder="Search..."
+                  style="outline: 0; background: #f8f8f7"
+                />
+                <input
+                  onkeyup="searchInput(event,'name',cateTypes)"
+                  class="search-2 p-2 ps-5 col-12 rounded-4 d-none"
+                  type="search"
+                  placeholder="Search..."
+                  style="outline: 0; background: #f8f8f7"
+                />
+                <i
+                  class="fa-solid fa-magnifying-glass position-absolute"
+                  style="left: 16px; top: calc(50% - 7px); font-size: 13px"
+                ></i>
+              </div>
+            </nav>
+            <h2 class="fw-bold mb-4" id="activeHeading">Categories</h2>
+
+            <div
+              id="categoriesContent"
+              style="height: 1vh"
+              class="d-flex flex-wrap justify-content-center flex-grow-1 col-12 gap-3 overflow-auto py-3"
+            ></div>
+            <div
+              onclick="toggleModal()"
+              class="modal position-fixed top-0 end-0 d-none align-items-center justify-content-end opacity-0"
+              style="
+                height: 100vh;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                transition: opacity 1s;
+              "
+            >
+              <div
+                onclick="event.stopPropagation()"
+                class="fadeInDiv animate__animated animate__fadeOutRightBig col-6 col-lg-3 d-flex gap-2 align-items-center "
+              >
+                <div
+                  id="cardContent"
+                  class="order-2 bg-white w-100 d-flex flex-column align-items-center justify-content-center"
+                  style="min-height: 100vh"
+                ></div>
+
+                <div
+                  onclick="toggleModal()"
+                  class="bg-white rounded-2 order-1 bar"
+                  style="width: 5px; height: 150px; cursor: pointer"
+                ></div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div
+        class="alert alert-success col-8 col-lg-4 position-absolute opacity-0 p-2 m-0"
+        style="top: 10%; right:0%;z-index: 999999999;"
+      >
+        Order has sent
+      </div>
+      </div>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./modal.js"></script>
+    <script src="./controllers.js"></script>
+    <script src="./view.js"></script>
+  </body>
+</html>
