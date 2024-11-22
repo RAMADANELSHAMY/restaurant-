@@ -4,7 +4,6 @@ let addToCate = () => {
     !cate && category.push(pro);
   });
 };
-
 let renderCategory = (category) => {
   categoriesContent.innerHTML = "";
   category.forEach((el, i) => {
@@ -19,7 +18,6 @@ let renderCategory = (category) => {
         `;
   });
 };
-
 let cateFilter = (i) => {
   let product = filteredInput.length > 0 ? filteredInput[i] : category[i];
   activeHeading.innerText = `${product.cat}`;
@@ -29,7 +27,6 @@ let cateFilter = (i) => {
   renderTypes(cateTypes);
   toggleSearch();
 };
-
 let renderTypes = (cateTypes) => {
   categoriesContent.innerHTML = "";
   cateTypes.forEach((el, i) => {
@@ -46,7 +43,6 @@ let renderTypes = (cateTypes) => {
     `;
   });
 };
-
 let addToCard = (i) => {
   toggleModal();
   let product =
@@ -57,7 +53,6 @@ let addToCard = (i) => {
   x == -1 && card.push(product);
   renderCard();
 };
-
 let renderCard = () => {
   card.forEach((el, i) => {
     cardContent.innerHTML = `
@@ -79,7 +74,6 @@ let renderCard = () => {
   `;
   });
 };
-
 let incrementQty = (i) => {
   let product = card[i];
   product.qty++;
@@ -107,7 +101,6 @@ function addToOrder(event, i) {
     }, 1000);
   }, 0);
 }
-
 let toggleModal = () => {
   !modalIndex
     ? (modalDiv.classList.replace("opacity-0", "opacity-100"),
@@ -127,7 +120,6 @@ let toggleModal = () => {
 let goLogin = () => {
   window.location.href = "../index.html";
 };
-
 let searchInput = (event, key, arr) => {
   filteredInput = arr.filter(
     (el) =>
@@ -146,7 +138,6 @@ let changePath = () => {
     toggleSearch();
   }
 };
-
 let toggleSearch = () => {
   !searchIndex
     ? ((search1.value = ""),
@@ -156,4 +147,9 @@ let toggleSearch = () => {
       (search1.style.display = "flex"),
       search2.classList.replace("d-flex", "d-none"));
   searchIndex = !searchIndex;
+};
+let toggleMenu = () => {
+  aside.style.visibility == "hidden"
+    ? (aside.style.visibility = "visible")
+    : (aside.style.visibility = "hidden");
 };

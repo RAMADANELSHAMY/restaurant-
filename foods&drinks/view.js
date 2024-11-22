@@ -10,6 +10,7 @@ let search1 = document.querySelector(".search-1");
 let search2 = document.querySelector(".search-2");
 let searchIndex = false;
 let showAlert = document.querySelector(".alert");
+let aside = document.querySelector(".toggleAside");
 
 addToCate();
 renderCategory(category);

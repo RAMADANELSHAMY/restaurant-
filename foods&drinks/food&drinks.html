@@ -39,6 +39,9 @@
       main {
         min-height: 100vh;
       }
+      aside {
+        min-height: 100vh;
+      }
       aside ul li a {
         padding: 10px 0;
         font-weight: 500;
@@ -108,9 +111,24 @@
         .logo-title {
           font-size: 15px !important;
         }
-        .alert{
-          font-size: 10px ;
+        .alert {
+          font-size: 10px;
         }
+
+        aside ul li a {
+          padding: 0 !important;
+        }
+      }
+
+      .toggleAside {
+        position: absolute;
+        top: 10%;
+        right: 5%;
+        z-index: 99999;
+        padding: 0 ;
+        min-height: fit-content !important ;
+        border-radius: 20px;
+        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4),-3px -3px 10px rgba(0, 0, 0, 0.4) ;
       }
     </style>
   </head>
@@ -119,11 +137,10 @@
       <div class="container position-relative">
         <div class="row">
           <aside
-            class="col-5 col-lg-3 bg-white shadow-sm py-2 px-3 d-none d-lg-block"
-            style="min-height: 100vh"
+            class="col-3 bg-white shadow-sm py-2 px-3 d-none d-lg-block"
           >
             <div
-              class="ps-4 d-flex gap-3 align-items-center"
+              class="ps-4 d-none d-lg-flex gap-3 align-items-center"
               onclick="goLogin()"
               style="cursor: pointer"
             >
@@ -217,7 +234,7 @@
             </ul>
 
             <div
-              class="carduser col-9 bg-black text-center position-relative mt-4 m-auto py-4 bg-white border-0 shadow-lg rounded-4"
+              class="carduser col-9 bg-black text-center position-relative mt-4 m-auto py-4 bg-white border-0 shadow-lg rounded-4 d-none d-lg-block"
             >
               <img
                 src="../assets/user.png"
@@ -260,14 +277,118 @@
           >
             <div
               class="d-flex d-lg-none gap-3 align-items-center col-12 mb-3"
-              onclick="goLogin()"
               style="cursor: pointer"
             >
+              <img
+                onclick="toggleMenu()"
+                src="../assets/menu.png"
+                alt=""
+                class="d-flex d-lg-none position-absolute"
+                style="width: 20px; right: 5%; cursor: pointer"
+              />
+              <aside
+                class="col-6 col-md-3  bg-white  d-block d-lg-none toggleAside"
+                style="visibility: hidden"
+              >
+            
+                <ul class="p-0 mt-2">
+                  <li class="rounded-4">
+                    <a href="#" class="d-flex gap-3 align-items-center px-3">
+                      <img
+                        src="../assets/icon1.png"
+                        style="width: 25px"
+                        alt=""
+                        class="bg-danger"
+                      />
+                      <p class="m-0">Dashboard</p>
+                    </a>
+                  </li>
+                  <li class="bg-warning mt-1 rounded-4">
+                    <a href="#" class="d-flex gap-3 px-3 align-items-center">
+                      <img
+                        src="../assets/icon2.png"
+                        style="width: 20px; mix-blend-mode: multiply"
+                        alt=""
+                        class="bg-danger"
+                      />
+                      <p class="m-0">Food & Drinks</p>
+                    </a>
+                  </li>
+                  <li class="mt-1 rounded-4">
+                    <a href="#" class="d-flex gap-3 px-3 align-items-center">
+                      <img
+                        src="../assets/icon3.png"
+                        style="width: 20px"
+                        alt=""
+                        class="bg-danger"
+                      />
+                      <p class="m-0">Messages</p>
+                    </a>
+                  </li>
+                  <li class="mt-1 rounded-4">
+                    <a href="#" class="d-flex gap-3 px-3 align-items-center">
+                      <img
+                        src="../assets/icon4.png"
+                        style="width: 20px"
+                        alt=""
+                        class="bg-danger"
+                      />
+                      <p class="m-0">Bills</p>
+                    </a>
+                  </li>
+                  <li class="mt-1 rounded-4">
+                    <a href="#" class="d-flex gap-3 px-3 align-items-center">
+                      <img
+                        src="../assets/icon5.png"
+                        style="width: 20px"
+                        alt=""
+                        class="bg-danger"
+                      />
+                      <p class="m-0">Settings</p>
+                    </a>
+                  </li>
+                  <li class="mt-2 mb-2 ps-3 text-secondary fw-medium">Other</li>
+
+                  <li class="mt-1 rounded-4">
+                    <a href="#" class="d-flex gap-3 px-3 align-items-center">
+                      <img
+                        src="../assets/icon6.png"
+                        style="width: 20px"
+                        alt=""
+                        class="bg-danger"
+                      />
+                      <p class="m-0">Notifications</p>
+                    </a>
+                  </li>
+                  <li class="mt-1 rounded-4">
+                    <a href="#" class="d-flex gap-3 px-3 align-items-center">
+                      <img
+                        src="../assets/icon7.png"
+                        style="width: 20px"
+                        alt=""
+                        class="bg-danger"
+                      />
+                      <p class="m-0">Support</p>
+                    </a>
+                  </li>
+                </ul>
+
+               
+
+                <p
+                  style="font-size: 12px"
+                  class="text-secondary text-center mt-3 fw-medium"
+                >
+                  &copy; 2020 SmartPOS App
+                </p>
+              </aside>
               <i
                 class="logo fa-solid fa-bag-shopping text-danger text-center p-2 col-2 col-md-1 rounded-4 fs-5"
                 style="background: #faf9f9"
               ></i>
-              <h1 class="m-0 fs-5 fw-bolder logo-title">SmartPOS</h1>
+              <h1 onclick="goLogin()" class="m-0 fs-5 fw-bolder logo-title">
+                SmartPOS
+              </h1>
             </div>
             <nav
               class="col-12 d-flex flex-wrap justify-content-between py-2 align-items-center"
@@ -335,7 +456,7 @@
             >
               <div
                 onclick="event.stopPropagation()"
-                class="fadeInDiv animate__animated animate__fadeOutRightBig col-6 col-lg-3 d-flex gap-2 align-items-center "
+                class="fadeInDiv animate__animated animate__fadeOutRightBig col-6 col-lg-3 d-flex gap-2 align-items-center"
               >
                 <div
                   id="cardContent"
@@ -353,11 +474,11 @@
           </section>
         </div>
         <div
-        class="alert alert-success col-8 col-lg-4 position-absolute opacity-0 p-2 m-0"
-        style="top: 10%; right:0%;z-index: 999999999;"
-      >
-        Order has sent
-      </div>
+          class="alert alert-success col-8 col-lg-4 position-absolute opacity-0 p-2 m-0"
+          style="top: 10%; right: 0%; z-index: 999999999"
+        >
+          Order has sent
+        </div>
       </div>
     </main>
 
